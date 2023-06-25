@@ -26,19 +26,18 @@ struct CategoryHome: View {
                 .listRowInsets(EdgeInsets())
             }
             .listStyle(.inset)
-        }
-        .listStyle(.inset)
-        .navigationTitle("Featured")
-        .toolbar {
-            Button {
-                showingProfile.toggle()
-            } label: {
-                Label("User Profile", systemImage: "person.crop.circle")
+            .navigationTitle("Featured")
+            .toolbar {
+                Button {
+                    showingProfile.toggle()
+                } label: {
+                    Label("User Profile", systemImage: "person.crop.circle")
+                }
             }
-        }
-        .sheet(isPresented: $showingProfile) {
-            ProfileHost()
-                .environmentObject(modelData)
+            .sheet(isPresented: $showingProfile) {
+                ProfileHost()
+                    .environmentObject(modelData)
+            }
         }
     }
 }
